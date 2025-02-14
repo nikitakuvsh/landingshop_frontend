@@ -1,0 +1,59 @@
+/* Общие стили */
+.info-modal {
+    position: fixed;
+    top: 20%;
+    right: -300px; /* Начальное положение за экраном */
+    width: 250px;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-modal p {
+    color: white;
+}
+
+/* Анимация появления */
+.show {
+    transform: translateX(-320px); /* Плавно перемещаем в видимую область */
+    opacity: 1; /* Убираем скрытие */
+}
+
+/* Анимация исчезновения */
+.hide {
+    transform: translateX(100vw); /* Элемент выходит за пределы экрана */
+    opacity: 0; /* Делаем элемент полностью прозрачным */
+}
+
+/* Стили для ошибок */
+.error {
+    background-color: #ff4c4c;
+    border-left: 5px solid #b30000;
+}
+
+/* Стили для успеха */
+.success {
+    background-color: #4caf50;
+    border-left: 5px solid #006400;
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 600px) {
+    .info-modal {
+        width: 90%;
+        right: -100%;
+    }
+    
+    .show {
+        transform: translateX(-95%); /* Для мобильных устройств */
+    }
+}

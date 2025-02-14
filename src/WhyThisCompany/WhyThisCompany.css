@@ -1,0 +1,169 @@
+/* Общий контейнер */
+.why__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+/* Заголовок */
+.why__title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+/* Обертка для блоков */
+.why__blocks-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Отдельный блок */
+.why__block {
+    position: relative;
+    width: 48%;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: 20px;
+    border: 1px solid #8d8f92e7;;
+    padding: 0 1rem;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    min-height: 13rem;
+}
+
+/* Эффект при наведении */
+.why__block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3);
+}
+
+/* Контейнер иконки */
+.why__image-content {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Иконка */
+.why__image {
+    max-width: 80%;
+    height: auto;
+}
+
+/* Текстовый блок */
+.why__text-content {
+    flex: 1;
+    text-align: left;
+    margin-right: 10%;
+}
+
+/* Заголовок в блоке */
+.why__block-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Описание */
+.why__block-text {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Нумерация (справа сверху) */
+.why__number-block {
+    position: absolute;
+    top: 5%;
+    right: 2%;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background: #007bff;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.why__edit-button, .why__save-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.why__edit-button {
+    background-color: #007bff;
+    color: white;
+}
+
+.why__edit-button:hover {
+    background-color: #0056b3;
+}
+
+.why__save-button {
+    background-color: #28a745;
+    color: white;
+}
+
+.why__save-button:hover {
+    background-color: #218838;
+}
+
+.why__block-title-edit, .why__block-text-edit {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+}
+
+
+/* 📱 Адаптация под мобильные */
+@media (max-width: 768px) {
+    .why__block {
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .why__image-content {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .why__image {
+        max-width: 50%;
+    }
+
+    .why__text-content {
+        text-align: center;
+    }
+
+    .why__title {
+        font-size: 36px;
+    }
+}

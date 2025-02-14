@@ -1,6 +1,6 @@
 import {useNavigate} from "react-router-dom";
 import './Header.css';
-import logo from '../images/logo.jpg';
+import logo from '../images/logo.svg';
 import telIcon from '../images/icons/tel.svg';
 
 export default function Header(){
@@ -12,7 +12,7 @@ export default function Header(){
             <div className='header__container'>
                 <div className='header__content'>
                     <div className='header__logo-container'>
-                        <img className='header__logo' alt='логотип' src={logo} />
+                        <img className='header__logo' alt='логотип' src={logo} onClick={() => navigate('/')}/>
                     </div>
                     <div className='header__nav'>
                         <a className='header__nav-item' href='#'>ОБО МНЕ</a>
@@ -25,7 +25,7 @@ export default function Header(){
                     </div>
                     <div className='header__contact'>
                         <img className='header__contact-icon' alt='телефон' src={telIcon}/>
-                        <p className='header__tel'>+7(962)190-07-26</p>
+                        <p className='header__tel'>+c(xxx)yyy-yy-yy</p>
                     </div>
                 </div>
             </div>

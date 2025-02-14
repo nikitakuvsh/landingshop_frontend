@@ -1,0 +1,130 @@
+/* Контейнер занимает всю ширину */
+.about-site__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    gap: 80px; /* Разделяем блоки */
+}
+
+/* Общий стиль секции */
+.about-site__section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* Отзеркаленная версия */
+.about-site__section--reverse {
+    flex-direction: row-reverse;
+}
+
+/* Левая колонка */
+.about-site__left {
+    flex: 1;
+    max-width: 50%;
+    padding-right: 40px;
+}
+
+.about-site__title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.about-site__title--blue {
+    color: #007bff;
+}
+
+.about-site__text {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Кнопки */
+.about-site__button-container {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.about-site__button {
+    font-size: 1.2rem;
+    padding: 15px 30px;
+    border-radius: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.about-site__button--primary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+}
+
+.about-site__button--primary:hover {
+    background-color: #0056b3;
+}
+
+.about-site__button--secondary {
+    background-color: transparent;
+    color: #007bff;
+    border: 2px solid #007bff;
+}
+
+.about-site__button--secondary:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+}
+
+/* Правая колонка */
+.about-site__right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* Изображения */
+.about-site__image {
+    max-width: 90%;
+    height: auto;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .about-site__section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-site__section--reverse {
+        flex-direction: column;
+    }
+
+    .about-site__left {
+        max-width: 100%;
+        padding-right: 0;
+    }
+
+    .about-site__button-container {
+        justify-content: center;
+    }
+
+    .about-site__button {
+        font-size: 0.8rem;
+        padding: 14px 28px;
+    }
+
+    .about-site__right {
+        margin-top: 30px;
+        max-width: 100%;
+    }
+
+    .about-site__image {
+        max-width: 80%;
+    }
+}

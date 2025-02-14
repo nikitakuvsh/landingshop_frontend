@@ -1,0 +1,17 @@
+<?xml version="1.0" ?><svg data-name="Layer 1" id="Layer_1" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><style>
+      .cls-1 {
+        fill: #f5dd90;
+      }
+
+      .cls-2 {
+        fill: #a3cef1;
+      }
+
+      .cls-3 {
+        fill: #6096ba;
+      }
+
+      .cls-4 {
+        fill: #274c77;
+      }
+    </style></defs><path class="cls-2" d="M24.98,37H60.98V3H8.98V22.73c1.4-1.11,3.15-1.73,4.97-1.73h22.89c.59,0,1.12,.24,1.51,.63s.63,.92,.63,1.51c0,1.07-.78,1.97-1.84,2.12l-10.44,1.49c-.99,.15-1.72,.99-1.72,1.98v8.27Z"/><polyline class="cls-4" points="23.98 41 23.98 61 19.98 61 17.98 45 15.98 61 11.98 61 11.98 41"/><circle class="cls-4" cx="17.98" cy="15" r="6"/><path class="cls-3" d="M36.83,21H13.95c-2.49,0-4.84,1.15-6.35,3.13-2,2.63-4.22,7.2-4.57,14.75-.05,1.15,.88,2.12,2.03,2.12h0c1.05,0,1.91-.81,2.02-1.86,.62-5.94,3.9-12.14,3.9-12.14v14h14v-12.27c0-1,.73-1.84,1.72-1.98l10.44-1.49c1.06-.15,1.84-1.05,1.84-2.12h0c0-1.18-.96-2.14-2.14-2.14Z"/><rect class="cls-1" height="4" width="4" x="52.98" y="7"/><rect class="cls-1" height="4" width="4" x="52.98" y="29"/><circle class="cls-1" cx="54.98" cy="20" r="2"/><rect class="cls-3" height="2" width="6" x="39.98" y="6"/><rect class="cls-3" height="2" width="10" x="39.98" y="10"/><rect class="cls-3" height="2" width="4" x="41.98" y="17"/><rect class="cls-3" height="2" width="8" x="41.98" y="21"/><rect class="cls-3" height="2" width="6" x="39.98" y="28"/><rect class="cls-3" height="2" width="10" x="39.98" y="32"/></svg>
