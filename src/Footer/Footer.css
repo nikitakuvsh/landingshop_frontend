@@ -1,0 +1,25 @@
+/* Футер */
+.footer {
+    background: #cfcece34;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Ссылка в футере */
+.footer__link {
+    color: #4a90e2;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+.footer__link:hover {
+    color: #0a7aeb;
+    text-decoration: underline;
+}

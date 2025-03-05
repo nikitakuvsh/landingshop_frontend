@@ -46,10 +46,10 @@
 }
 
 .header__contact {
-    font-size: 1remrem;
+    font-size: 1rem;
     white-space: nowrap;
     background-color: #007bff;
-    padding: 0.7rem 0.5rem;
+    padding: 1rem 1rem;
     border-radius: 15px;
     color: white;
     font-weight: bold;
@@ -58,6 +58,8 @@
     transition: background-color 0.3s ease-in-out;
     display: flex;
     align-items: center;
+    border: none;
+    
 }
 
 .header__contact:hover {

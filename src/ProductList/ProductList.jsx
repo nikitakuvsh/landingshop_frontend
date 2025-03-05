@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import InformationModal from "../InformationModal/InformationModal";
 import "./ProductList.css";
+import './Contact.css';
 
 export default function ProductList() {
     const [products, setProducts] = useState([]);
@@ -96,12 +97,24 @@ export default function ProductList() {
                 </div>
             )}
 
+            <div className="contact__container">
+                <h2 className="contact__title sh--t">Контактные данные</h2>
+                <div className="contact__block">
+                    <p className="contact__item">+7(999)999-999</p>
+                    <p className="contact__item">example@example.com</p>
+                    <p className="contact__item">Телеграмм: @example</p>
+                    <p className="contact__item">ВКонтакте: example</p>
+                </div>
+            </div>
+
             {products.length === 0 ? (
                 <div className="no-product__container">
                     <p className="no-products">Загруженных товаров не найдено :(</p>
                 </div>
             ) : (
-                <div className="products__cards-inner">
+                <>
+                    <h2 className="product__cards-title sh--t">Товары</h2>
+                    <div className="products__cards-inner">
                     {products.map((product) => (
                         <div className="product__card" key={product.id} onClick={() => navigate(`/product/${product.id}`)}>
                             <img className="product__card-image" src={`http://127.0.0.1:8000${product.image_url}`} alt={product.name} />
@@ -110,6 +123,7 @@ export default function ProductList() {
                         </div>
                     ))}
                 </div>
+                </>
             )}
 
             {showInformationModal && (<InformationModal isError={isError} modalMessage={modalMessage} onClose={() => setShowInformationModal(false)} />)}

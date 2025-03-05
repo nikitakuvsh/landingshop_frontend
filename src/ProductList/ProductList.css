@@ -1,73 +1,4 @@
-/* Контейнер списка товаров */
-.product-list__container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 20px;
-    max-width: 1400px;
-    margin: 0 auto;
-}
 
-/* Контейнер карточек с адаптивной сеткой */
-.products__cards-inner {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    width: max-content;
-    max-width: 1200px;
-    padding: 10px;
-}
-
-/* Карточка товара */
-.product__card {
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.product__card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-}
-
-/* Изображение товара */
-.product__card-image {
-    /* width: 100%; */
-    max-height: 20rem;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
-
-/* Название товара */
-.product__card-name {
-    font-size: 1.3rem;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 5px;
-}
-
-/* Цена товара */
-.product__card-price {
-    font-size: 1.1rem;
-    color: #ff5733;
-    font-weight: bold;
-}
-
-/* Отображение при отсутствии товаров */
-.no-products {
-    font-size: 1.5rem;
-    color: #888;
-    margin-top: 20px;
-}
 
 /* Контейнер кнопки добавления */
 .add-product__container {
@@ -167,7 +98,133 @@
     background-color: #c52217;
 }
 
-/* Адаптивность для мобильных устройств */
+/* Контейнер списка товаров */
+.product-list__container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    margin-bottom: 10rem;
+}
+
+/* Карточки товаров */
+.products__cards-inner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Карточка товара */
+.product__card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.product__card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Изображение товара */
+.product__card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Название товара */
+.product__card-name {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Цена товара */
+.product__card-price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #4CAF50;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+/* Контакты */
+.contact__container {
+    color: black;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 40px;
+    margin-bottom: 5rem;
+}
+
+.sh--t {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.contact__block {
+    display: flex;
+    gap: 10px;
+}
+
+.contact__item {
+    font-size: 1.2rem;
+    background: rgba(182, 180, 180, 0.2);
+    padding: 10px;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.contact__item:hover {
+    background: rgba(124, 124, 124, 0.4);
+    cursor: pointer;
+}
+
+/* Если нет товаров */
+.no-product__container {
+    text-align: center;
+    padding: 30px;
+}
+
+.no-products {
+    font-size: 18px;
+    font-weight: bold;
+    color: gray;
+}
+
+
+/* Общие стили уже у тебя есть, добавляю адаптивность */
+
+/* Для планшетов (ширина меньше 1024px) */
+@media (max-width: 1024px) {
+    .product-list__container {
+        padding: 15px;
+    }
+
+    .products__cards-inner {
+        gap: 15px;
+    }
+
+    .product__card {
+        border-radius: 10px;
+    }
+
+    .product__card-name {
+        font-size: 16px;
+    }
+
+    .product__card-price {
+        font-size: 14px;
+    }
+}
+
+/* Для мобильных устройств (ширина меньше 768px) */
 @media (max-width: 768px) {
     .product-list__container {
         padding: 10px;
@@ -179,23 +236,58 @@
     }
 
     .product__card {
-        padding: 10px;
+        border-radius: 8px;
     }
 
     .product__card-image {
-        max-height: 160px;
+        height: 160px;
     }
 
     .product__card-name {
-        font-size: 1.1rem;
+        font-size: 14px;
+        padding: 8px;
     }
 
     .product__card-price {
-        font-size: 1rem;
+        font-size: 12px;
+        padding-bottom: 10px;
     }
 
-    .add-product__button {
-        width: 100%;
-        text-align: center;
+    .contact__container {
+        padding: 15px;
+    }
+
+    .contact__title {
+        font-size: 18px;
+    }
+
+    .contact__item {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+
+/* Для очень маленьких экранов (ширина меньше 480px) */
+@media (max-width: 480px) {
+    .products__cards-inner {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .product__card-image {
+        height: 140px;
+    }
+
+    .contact__container {
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    .contact__title {
+        font-size: 16px;
+    }
+
+    .contact__item {
+        font-size: 12px;
+        padding: 6px;
     }
 }

@@ -5,9 +5,12 @@ import Product from './Product/Product';
 import AdminLogin from './AdminLogin/AdminLogin';
 import AboutSite from './AboutSite/AboutSite';
 import WhyThisCompany from './WhyThisCompany/WhyThisCompany';
+import Footer from './Footer/Footer';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import useSmoothScroll from './smoothScroll';
 
 export default function App() {
+  useSmoothScroll();
   return (
     <Router>
       <div className="app">
@@ -18,6 +21,7 @@ export default function App() {
           <Route path="/product/:product_id" element={<Product />}></Route>
           <Route path='/admin' element={<AdminLogin />}></Route>
         </Routes>
+        <Footer />
       </div>
     </Router>
   );
