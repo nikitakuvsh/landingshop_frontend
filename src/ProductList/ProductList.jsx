@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import InformationModal from "../InformationModal/InformationModal";
 import "./ProductList.css";
-import './Contact.css';
 
 export default function ProductList() {
     const [products, setProducts] = useState([]);

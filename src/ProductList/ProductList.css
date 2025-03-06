@@ -257,13 +257,18 @@
         padding: 15px;
     }
 
-    .contact__title {
-        font-size: 18px;
+    .sh--t {
+        font-size: 2rem;
+        text-align: center;
     }
 
     .contact__item {
         font-size: 14px;
         padding: 8px;
+    }
+
+    .contact__block {
+        flex-direction: column;
     }
 }
 
@@ -282,8 +287,9 @@
         border-radius: 8px;
     }
 
-    .contact__title {
-        font-size: 16px;
+    .sh--t {
+        font-size: 1.6rem;
+        text-align: center;
     }
 
     .contact__item {
