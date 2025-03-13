@@ -142,13 +142,13 @@
     font-weight: bold;
     text-align: center;
     padding: 10px;
+    color: rgb(53, 53, 53);
 }
 
 /* Цена товара */
 .product__card-price {
-    font-size: 16px;
+    font-size: 17px;
     font-weight: bold;
-    color: #4CAF50;
     text-align: center;
     padding-bottom: 15px;
 }
@@ -218,10 +218,6 @@
     .product__card-name {
         font-size: 16px;
     }
-
-    .product__card-price {
-        font-size: 14px;
-    }
 }
 
 /* Для мобильных устройств (ширина меньше 768px) */
@@ -249,7 +245,6 @@
     }
 
     .product__card-price {
-        font-size: 12px;
         padding-bottom: 10px;
     }
 
@@ -293,7 +288,6 @@
     }
 
     .contact__item {
-        font-size: 12px;
         padding: 6px;
     }
 }

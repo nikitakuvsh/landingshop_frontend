@@ -118,7 +118,7 @@ export default function ProductList() {
                         <div className="product__card" key={product.id} onClick={() => navigate(`/product/${product.id}`)}>
                             <img className="product__card-image" src={`http://127.0.0.1:8000${product.image_url}`} alt={product.name} />
                             <h3 className="product__card-name">{product.name}</h3>
-                            <p className="product__card-price">Цена: {product.price} руб.</p>
+                            <p className="product__card-price">{product.price} ₽</p>
                         </div>
                     ))}
                 </div>

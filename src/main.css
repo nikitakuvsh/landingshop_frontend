@@ -21,3 +21,13 @@ html, body {
 .main-content {
     flex: 1;
 }
+
+button {
+    cursor: pointer;
+}
+
+img {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+}

@@ -85,6 +85,8 @@ export default function AdminLogin() {
                         <>
                             <button className="admin__button" onClick={() => navigate('/products-list')}>Перейти к товарам</button>
                             <button className="admin__button" onClick={() => navigate('/')}>Перейти на главную</button>
+                            <button className="admin__button" onClick={() => navigate('/news')}>Перейти к новостям</button>
+                            <button className="admin__button" onClick={() => navigate('/vacancy')}>Перейти к вакансиям</button>
                             <button className="admin__button admin__button--red" onClick={() => { localStorage.removeItem('isLoggedIn'); navigate('/'); }}>Выйти</button>
                         </>
                     ) : null}
