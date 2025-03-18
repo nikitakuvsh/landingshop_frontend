@@ -115,6 +115,12 @@
     background-color: #1358a1;
 }
 
+.no--news {
+    font-size: 42px;
+    color: rgb(102, 102, 102);
+    text-align: center;
+}
+
 @media (max-width: 799px) {
     .news__container {
         display: flex;
@@ -124,6 +130,10 @@
 
     .news__button--adaptive {
         display: flex;
+    }
+
+    .no--news {
+        font-size: 20px;
     }
 }
 

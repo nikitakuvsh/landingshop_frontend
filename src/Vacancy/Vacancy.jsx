@@ -15,10 +15,22 @@ export default function Vacancy() {
     const [vacancies, setVacancies] = useState([]);
     const [selectedVacancy, setSelectedVacancy] = useState(null);
     const [isModalRemoveVacancy, setIsModalRemoveVacancy] = useState(false);
+    const [vacanciesToShow, setVacanciesToShow] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
         axios.get('http://localhost:8000/vacancies/dnr')
-            .then(response => setVacancies(response.data))
+            .then(response => {
+                setVacancies(response.data.reverse());
+                if (window.innerWidth <= 799) {
+                    setIsMobile(true);
+                    setVacanciesToShow(response.data.slice(0,5));
+                } else {
+                    setIsMobile(false);
+                    setVacanciesToShow(response.data);
+                }
+            })
             .catch(error => {
                 console.error('Ошибка загрузки вакансий:', error);
                 setIsError(true);
@@ -85,14 +97,21 @@ export default function Vacancy() {
         }
     };
 
+    const loadMoreVacancies = () => {
+        const nextPage = currentPage + 1;
+        const nextVacancies = vacancies.slice(nextPage * 5 - 5, nextPage * 5);
+        setVacanciesToShow([...vacanciesToShow, ...nextVacancies]);
+        setCurrentPage(nextPage);
+    }
+
 
     return (
         <div className='vacancy__container'>
             <h2 className='container__title'>Вакансии ДНР</h2>
             <button className='button__add--vacancy' style={{ display: localStorage.getItem('isLoggedIn') ? 'block' : 'none' }} onClick={() => setAddVacancyModalOpen(true)}>Добавить вакансию</button>
 
-            {vacancies.length > 0 ? (
-                vacancies.map(vacancy => (
+            {vacanciesToShow.length > 0 ? (
+                vacanciesToShow.map(vacancy => (
                     <div key={vacancy.id} className='vacancy__block'>
                         <h2 className='vacancy__title'>{vacancy.title}</h2>
                         <p className='vacancy__salary'>{vacancy.salary}₽</p>
@@ -111,7 +130,7 @@ export default function Vacancy() {
                 <h2 className='no--vacancy'>Пока вакансий нет :(</h2>
             )}
 
-            <button className='vacancy__button--adaptive'>Показать ещё</button>
+            <button className='vacancy__button--adaptive' onClick={loadMoreVacancies} style={{display: vacanciesToShow.length > 0 && vacanciesToShow.length != vacancies.length ? 'block' : 'none'}}>Показать ещё</button>
 
             {addVacancyModalOpen && (
                 <div className="modal-overlay">

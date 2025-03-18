@@ -14,11 +14,23 @@ export default function News() {
     const [showInformationModal, setShowInformationModal] = useState(false);
     const [selectedNews, setSelectedNews] = useState(null);
     const [isModalRemoveNews, setIsModalRemoveNews] = useState(false);
+    const [newsToShow, setNewsToShow] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
         fetch('http://127.0.0.1:8000/news')
             .then((response) => response.json())
-            .then((data) => setNewsList(data.reverse()))
+            .then((data) => {
+                setNewsList(data.reverse());
+                if (window.innerWidth <= 799) {
+                    setIsMobile(true);
+                    setNewsToShow(data.slice(0, 5));
+                } else {
+                    setIsMobile(false);
+                    setNewsToShow(data);
+                }
+            })
             .catch((error) => {
                 console.error('Error fetching news:', error);
                 setIsError(true);
@@ -74,9 +86,9 @@ export default function News() {
             setShowInformationModal(true);
             setTimeout(() => setShowInformationModal(false), 5000);
         } catch (error) {
-            console.error("Ошибка удаления вакансии:", error);
+            console.error("Ошибка удаления новости:", error);
             setIsError(true);
-            setModalMessage('Ошибка удаления вакансии!');
+            setModalMessage('Ошибка удаления новости!');
             setShowInformationModal(true);
             setTimeout(() => setShowInformationModal(false), 5000);
         }
@@ -87,25 +99,36 @@ export default function News() {
         setIsModalRemoveNews(true);
     };
 
+    const loadMoreNews = () => {
+        const nextPage = currentPage + 1;
+        const nextNews = newsList.slice(nextPage * 5 - 5, nextPage * 5);
+        setNewsToShow([...newsToShow, ...nextNews]);
+        setCurrentPage(nextPage);
+    }
+
     return (
         <div className='news__container'>
             <div className='news__wrapper'>
                 <h2 className='container__title'>Новости</h2>
                 <button className='news__block--add-news' style={{ display: localStorage.getItem('isLoggedIn', 'true') ? 'block' : 'none' }} onClick={() => setAddNewsModalOpen(true)}>Добавить новость</button>
-                {newsList.map((news) => (
-                    <div className='news__block' key={news.id}>
-                        <h2 className='news__title'>{news.title}</h2>
-                        <div className='news__text'>
-                            <p className='news__text-item'>{news.description}</p>
-                            <div className='news__timeline'>
-                                <p className='news__timeline-item'>Опубликовано <span className='news__time'>{news.date_publish}</span></p>
+                {newsToShow.length > 0 ? (
+                    newsToShow.map((news) => (
+                        <div className='news__block' key={news.id}>
+                            <h2 className='news__title'>{news.title}</h2>
+                            <div className='news__text'>
+                                <p className='news__text-item'>{news.description}</p>
+                                <div className='news__timeline'>
+                                    <p className='news__timeline-item'>Опубликовано <span className='news__time'>{news.date_publish}</span></p>
+                                </div>
                             </div>
+                            <button className='news__block--remove' style={{ display: localStorage.getItem('isLoggedIn', 'true') ? 'block' : 'none' }} onClick={() => openRemoveModal(news)}>Удалить новость</button>
                         </div>
-                        <button className='news__block--remove' style={{ display: localStorage.getItem('isLoggedIn', 'true') ? 'block' : 'none' }} onClick={() => openRemoveModal(news)}>Удалить новость</button>
-                    </div>
-                ))}
+                    ))
+                ) : (
+                    <h2 className='no--news'>Пока новостей нет :(</h2>
+                )}
             </div>
-            <button className='news__button--adaptive'>Показать ещё</button>
+            <button className='news__button--adaptive' onClick={() => loadMoreNews()} style={{display: newsToShow.length > 0 && newsToShow.length != newsList.length ? 'block' : 'none'}}>Показать ещё</button>
             <Vacancy />
 
             {addNewsModalOpen && (
@@ -128,7 +151,7 @@ export default function News() {
             {isModalRemoveNews && selectedNews && (
                 <div className='modal-overlay'>
                     <div className='modal'>
-                        <h2>Вы уверены, что хотите удалить вакансию <br /> "{selectedNews.title}"?</h2>
+                        <h2>Вы уверены, что хотите удалить новость <br /> "{selectedNews.title}"?</h2>
                         <div className='modal-buttons'>
                             <button className='modal-button delete' onClick={handleRemoveNews} style={{ marginRight: '0' }}>Удалить</button>
                             <button className='modal-button cancel' onClick={() => setIsModalRemoveNews(false)}>Отмена</button>
