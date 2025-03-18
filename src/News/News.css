@@ -1,7 +1,7 @@
 /* Основной контейнер */
 .news__container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding: 20px;
     background-color: #f8f9fa;
     margin-bottom: 10rem;
