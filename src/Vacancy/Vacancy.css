@@ -121,6 +121,40 @@
     background-color: #0d4e94;
 }
 
+.modal__label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal__option {
+    display: flex;
+    margin-right: 20px;
+}
+
+.modal__radio {
+    margin-right: 5px;
+}
+
+.modal__radio-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.modal__radio-group label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.no--vacancy {
+    font-size: 42px;
+    color: rgb(102, 102, 102);
+}
+
 @media (max-width: 799px) {
     .vacancy__button--adaptive {
         display: flex;

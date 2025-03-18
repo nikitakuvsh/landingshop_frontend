@@ -18,7 +18,7 @@ export default function AdminLogin() {
         setError("");
 
         try {
-            const response = await fetch(`http://127.0.0.1:8000/login?name=admin&password=${password}`, {
+            const response = await fetch(`http://127.0.0.1:8000/admin/login?name=admin&password=${password}`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
             });
@@ -40,7 +40,7 @@ export default function AdminLogin() {
         setError("");
 
         try {
-            const response = await fetch(`http://127.0.0.1:8000/change_admin_password?name=admin&old_password=${password}&new_password=${newPassword}`, {
+            const response = await fetch(`http://127.0.0.1:8000/admin/change_admin_password?name=admin&old_password=${password}&new_password=${newPassword}`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
             });

@@ -14,7 +14,7 @@ export default function WhyThisCompany() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('http://127.0.0.1:8000/why_this_company');
+                const response = await fetch('http://127.0.0.1:8000/why_this_company/why_this_company');
                 if (response.ok) {
                     const result = await response.json();
                     if (result.blocks.length > 0) {
@@ -53,7 +53,7 @@ export default function WhyThisCompany() {
 
     const saveData = async () => {
         try {
-            const response = await fetch('http://127.0.0.1:8000/why_this_company', {
+            const response = await fetch('http://127.0.0.1:8000/why_this_company/why_this_company', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

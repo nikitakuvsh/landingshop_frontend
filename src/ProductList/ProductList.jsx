@@ -19,7 +19,7 @@ export default function ProductList() {
         formData.append("image", newProduct.image);
         formData.append("description", newProduct.description);
     
-        fetch("http://127.0.0.1:8000/create_product", {
+        fetch("http://127.0.0.1:8000/product/create_product", {
             method: "POST",
             body: formData
         })
@@ -58,7 +58,7 @@ export default function ProductList() {
     
 
     useEffect(() => {
-        fetch("http://127.0.0.1:8000/product-list")
+        fetch("http://127.0.0.1:8000/product/product-list")
             .then((response) => response.json())
             .then((data) => {
                 setProducts(data.reverse());
