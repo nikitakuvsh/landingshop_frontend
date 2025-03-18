@@ -19,7 +19,13 @@ export default function Vacancy() {
     useEffect(() => {
         axios.get('http://localhost:8000/vacancies/dnr')
             .then(response => setVacancies(response.data))
-            .catch(error => console.error('Ошибка загрузки вакансий:', error));
+            .catch(error => {
+                console.error('Ошибка загрузки вакансий:', error);
+                setIsError(true);
+                setModalMessage('Ошибка загрузки вакансий!');
+                setShowInformationModal(true);
+                setTimeout(() => setShowInformationModal(false), 5000);
+            });
     }, []);
 
     const handleAddVacancy = async () => {
@@ -66,8 +72,16 @@ export default function Vacancy() {
             setVacancies(vacancies.filter(v => v.id !== selectedVacancy.id));
             setIsModalRemoveVacancy(false);
             setSelectedVacancy(null);
+            setIsError(false);
+            setModalMessage('Вакансия успешно удалена!');
+            setShowInformationModal(true);
+            setTimeout(() => setShowInformationModal(false), 5000);
         } catch (error) {
             console.error("Ошибка удаления вакансии:", error);
+            setIsError(true);
+            setModalMessage('Ошибка при удалении вакансии!');
+            setShowInformationModal(true);
+            setTimeout(() => setShowInformationModal(false), 5000);
         }
     };
 
