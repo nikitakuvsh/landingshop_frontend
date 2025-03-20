@@ -15,7 +15,7 @@ export default function Product() {
     const [modalMessage, setModalMessage] = useState('');
 
     useEffect(() => {
-        fetch(`http://127.0.0.1:8000/product/${product_id}`)
+        fetch(`http://127.0.0.1:8000/product/product/${product_id}`)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error('Продукт не найден');
@@ -33,7 +33,7 @@ export default function Product() {
     }, [product_id]);
 
     const handleDelete = () => {
-        fetch(`http://127.0.0.1:8000/remove_product/${product_id}`, {
+        fetch(`http://127.0.0.1:8000/product/remove_product/${product_id}`, {
             method: 'DELETE',
         })
         .then((response) => {
@@ -80,6 +80,7 @@ export default function Product() {
                 <img className='product-image' src={`http://127.0.0.1:8000${product.image_url}`} alt={product.name} />
                 <p>Цена: {product.price} руб.</p>
                 <p>{product.description}</p>
+                <button className='product__button'>Приобрести</button>
                 {localStorage.getItem('isLoggedIn') && (
                     <button className='delete-product' onClick={() => setIsModalDeleteProduct(true)}>Удалить продукт</button>
                 )}
